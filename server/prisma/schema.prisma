@@ -1,0 +1,66 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String     @id @default(uuid())
+  email     String     @unique
+  password  String
+  updatedAt DateTime   @default(now())
+  createdAt DateTime   @default(now())
+  Category  Category[]
+}
+
+model Category {
+  id        String    @id @default(uuid())
+  name      String
+  icon      Image?    @relation(fields: [imageId], references: [id])
+  User      User?     @relation(fields: [userId], references: [id])
+  userId    String?
+  imageId   String?   @unique
+  updatedAt DateTime  @default(now())
+  createdAt DateTime  @default(now())
+  Gallery   Gallery[]
+}
+
+model Gallery {
+  id          String   @id @default(uuid())
+  name        String
+  img         Image[]
+  description String   @db.LongText
+  era         String?
+  type        String?
+  location    String
+  category    Category @relation(fields: [categoryId], references: [id])
+  qr          QR?      @relation(fields: [qRId], references: [id])
+  qRId        String?  @unique
+  updatedAt   DateTime @default(now())
+  createdAt   DateTime @default(now())
+  categoryId  String
+}
+
+model Image {
+  id        String    @id @default(uuid())
+  path      String
+  Gallery   Gallery?  @relation(fields: [galleryId], references: [id])
+  galleryId String?
+  Category  Category?
+  updatedAt DateTime  @default(now())
+  createdAt DateTime  @default(now())
+}
+
+model QR {
+  id        String   @id @default(uuid())
+  path      String
+  Gallery   Gallery?
+  updatedAt DateTime @default(now())
+  createdAt DateTime @default(now())
+}

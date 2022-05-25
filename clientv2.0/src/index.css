@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+    font-family: 'Pyidaungsu';
+    src: local('Pyidaungsu'),
+        url('./assets/Pyidaungsu.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+*{
+    font-family: "Pyidaungsu";
+}
+
+/* Works on Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #e6b041 #2b3646;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 4px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: #2b3646;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: #2b3646;
+    border-radius: 10px;
+    border: 1px solid #2b3646;
+  }
+  
+  .loading_indicator:before {
+    content: "";
+    background: #1d8efa54;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+  
+  .loading_indicator:after {
+    content: url("./assets/img/spinner.png");
+    position: fixed;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    z-index: 1001;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    @apply animate-spin;
+  }

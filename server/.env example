@@ -1,0 +1,7 @@
+PORT = 4000
+
+DATABASE_URL="mysql://admin:admin@localhost:3306/qr_db2"
+
+JWT_SECRET = yoonhanthardevelopers
+
+CLIENT_PORT = 3000

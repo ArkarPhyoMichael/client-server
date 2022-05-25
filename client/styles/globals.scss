@@ -1,0 +1,15 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+/* @import "./Sidebar.scss"; */
+
+/* Additional styles */
+@import "additional-styles/theme.scss";
+@import "additional-styles/utility-patterns.scss";
+/*
+ @import 'additional-styles/range-slider.scss';
+ @import 'additional-styles/toggle-switch.scss';
+ @import 'additional-styles/flatpickr.scss'; */
+
+@import "tailwindcss/utilities";
+

@@ -1,0 +1,10 @@
+{
+  "name": "qr_museum",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "YoonHanThar Developers",
+  "license": "MIT",
+  "dependencies": {
+    "lightgallery": "^2.4.0"
+  }
+}
